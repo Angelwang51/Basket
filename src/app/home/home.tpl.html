@@ -12,16 +12,19 @@
     <button ng-click='addItem()'>Add</button>
   </form>
 </div>
+  <!--container1-->
   <div class='item-container' ng-repeat='item in basket'>
     <div class="item">
       <!--$save(recordOrIndex)  Saves an existing item in the array.-->
-      <input type='checkbox' id='addToBasket' ng-model='item.done'>
+      <input type='checkbox' id='addToBasket' ng-model='item.done' ng-change='basket.$save(item)'>
       <span for='addToBasket'><i class="fa fa-shopping-cart"></i></span>
       <span>{{item.name}}</span><span>{{item.qty}}</span>
-      <button><i class="fa fa-times"></i></button>
+      <!--pass an 'item.id' param when call function deleteItem()-->
+      
+      <button ng-click='removeItem(item)'><i class="fa fa-times"></i></button>
     </div>
   </div>
   <div>
-  <button>Clear Basket</button>
+  <button ng-click='clearBasket(item)'>Clear Basket</button>
   </div>
 </div>
