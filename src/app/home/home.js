@@ -26,10 +26,8 @@ angular.module( 'Basket.home', [
   $scope.qty = '';
 
   $scope.addItem = function(){
-    // trim() method removes whitespace from both sides of a string.
     var newItem = $scope.newItem.trim();
     var qty = $scope.qty;
-    //if the length of item is 0 it will return nothing
     if (!newItem.length){
       return;
     }
@@ -37,7 +35,6 @@ angular.module( 'Basket.home', [
         name:newItem,
         qty:qty,
         done:false
-
     });
     $scope.newItem = '';
     $scope.qty = '';
@@ -54,5 +51,4 @@ angular.module( 'Basket.home', [
       }
     });
   };
-
 });

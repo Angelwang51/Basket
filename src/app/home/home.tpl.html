@@ -1,30 +1,24 @@
 <div class='inner-container'>
-
-<div class='input-container'>
-  <h1>Shopping List</h1>
-  <form>
-    
-    <input type='text' ng-model='newItem' placeholder='What to buy?' autofocus>
-
- 
-    <input type='number' ng-model='qty' placeholder='How many?'>
-
-    <button ng-click='addItem()'>Add</button>
-  </form>
-</div>
-  <!--container1-->
+  <div class='input-container'>
+    <h1>Shopping List</h1>
+    <form>
+      <input class='itemInput'type='text' ng-model='newItem' placeholder='What to buy?' autofocus>
+      <input class='qtyInput'type='number' ng-model='qty' placeholder='How many?'>
+      <button class='addBtn'ng-click='addItem()'>Add</button>
+    </form>
+  </div>
   <div class='item-container' ng-repeat='item in basket'>
     <div class="item">
       <!--$save(recordOrIndex)  Saves an existing item in the array.-->
       <input type='checkbox' id='addToBasket' ng-model='item.done' ng-change='basket.$save(item)'>
-      <span for='addToBasket'><i class="fa fa-shopping-cart"></i></span>
-      <span>{{item.name}}</span><span>{{item.qty}}</span>
+      <span for='addToBasket' class='shopping-cart'><i class="fa fa-shopping-cart"></i></span>
+      <span class='nameList'>{{item.name}}</span><span class='qtyList'>{{item.qty}}</span>
       <!--pass an 'item.id' param when call function deleteItem()-->
       
-      <button ng-click='removeItem(item)'><i class="fa fa-times"></i></button>
+      <button class='removeBtn'ng-click='removeItem(item)'><i class="fa fa-times"></i></button>
     </div>
   </div>
-  <div>
-  <button ng-click='clearBasket(item)'>Clear Basket</button>
+  <div class='clearBtn'>
+    <button ng-click='clearBasket(item)'>Clear Basket</button>
   </div>
 </div>
