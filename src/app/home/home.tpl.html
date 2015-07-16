@@ -2,18 +2,22 @@
 
 <div class='input-container'>
   <h1>Shopping List</h1>
-  <form> 
-    <input type='text' placeholder='What to buy?' autofocus>
-    <input type='number' placeholder='How many?'>
-    <button>Add</button>
+  <form>
+    
+    <input type='text' ng-model='newItem' placeholder='What to buy?' autofocus>
+
+ 
+    <input type='number' ng-model='qty' placeholder='How many?'>
+
+    <button ng-click='addItem()'>Add</button>
   </form>
 </div>
- 
-  <div class='item-container'>
+  <div class='item-container' ng-repeat='item in basket'>
     <div class="item">
-      <input type='checkbox' id='addToBasket'>
-      <span for='addToBasket' class='shopping-cart'><i class="fa fa-shopping-cart"></i></span>
-      <!--content-->
+      <!--$save(recordOrIndex)  Saves an existing item in the array.-->
+      <input type='checkbox' id='addToBasket' ng-model='item.done'>
+      <span for='addToBasket'><i class="fa fa-shopping-cart"></i></span>
+      <span>{{item.name}}</span><span>{{item.qty}}</span>
       <button><i class="fa fa-times"></i></button>
     </div>
   </div>
